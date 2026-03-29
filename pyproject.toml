@@ -5,6 +5,7 @@ description = "Playground for design and simulation tutorials for QDW 2026"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "jupyter>=1.1.1",
     "quantum-metal>=0.5.3.post1",
     "sqdmetal",
 ]

@@ -1,0 +1,13 @@
+[project]
+name = "qdw26-playground"
+version = "0.1.0"
+description = "Playground for design and simulation tutorials for QDW 2026"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "quantum-metal>=0.5.3.post1",
+    "sqdmetal",
+]
+
+[tool.uv.sources]
+sqdmetal = { git = "https://github.com/sqdlab/SQDMetal.git" }

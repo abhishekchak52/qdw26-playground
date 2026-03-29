@@ -1,0 +1,8 @@
+services:
+  qdw26:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: qdw26-playground:latest
+    working_dir: /app
+    user: ubuntu

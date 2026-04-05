@@ -1,6 +1,46 @@
 FROM abhishekchak52/palace_env:latest
 
-RUN apt-get update && apt-get install -y git 
+# Runtime libs for PySide6 / Qt6 (X11, xcb, GL/EGL, fonts) — common import failures without these.
+RUN apt-get update && apt-get install -y \
+	git \
+    gmsh \
+	libdbus-1-3 \
+	libdrm2 \
+	libegl1 \
+	libfontconfig1 \
+	libfreetype6 \
+	libgbm1 \
+	libgl1 \
+	libgl1-mesa-dri \
+	libglib2.0-0 \
+	libgles2 \
+	libglu1-mesa \
+	libice6 \
+	libopengl0 \
+	libsm6 \
+	libx11-6 \
+	libx11-xcb1 \
+	libxcb-cursor0 \
+	libxcb-icccm4 \
+	libxcb-image0 \
+	libxcb-keysyms1 \
+	libxcb-randr0 \
+	libxcb-render0 \
+	libxcb-render-util0 \
+	libxcb-shape0 \
+	libxcb-shm0 \
+	libxcb-sync1 \
+	libxcb-xfixes0 \
+	libxcb-xinerama0 \
+	libxcb1 \
+	libxext6 \
+	libxi6 \
+	libxkbcommon0 \
+	libxkbcommon-x11-0 \
+	libxrender1 \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
+
 
 # Copy uv from astral-sh/uv:0.11.2
 COPY --from=ghcr.io/astral-sh/uv:0.11.2 /uv /uvx /bin/

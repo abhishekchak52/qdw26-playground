@@ -1,8 +1,13 @@
+# Build locally: docker compose up --build
+# Use a pre-pushed image: docker compose pull && docker compose up (omit --build)
+#
 services:
-  qdw26:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: qdw26-playground:latest
-    working_dir: /app
-    user: ubuntu
+  dev:
+    build: .
+    image: abhishekchak52/qdw26-playground:latest
+    working_dir: /home/ubuntu/qdw26-playground
+    volumes:
+      - .:/home/ubuntu/qdw26-playground
+    environment:
+      QISKIT_METAL_HEADLESS: "1"
+    command: ["sh", "-c", "uv sync --locked && exec sleep infinity"]

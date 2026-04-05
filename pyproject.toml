@@ -3,12 +3,13 @@ name = "qdw26-playground"
 version = "0.1.0"
 description = "Playground for design and simulation tutorials for QDW 2026"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.13"
 dependencies = [
     "jupyter>=1.1.1",
-    "quantum-metal>=0.5.3.post1",
+    "quantum-metal",
     "sqdmetal",
 ]
 
 [tool.uv.sources]
 sqdmetal = { git = "https://github.com/sqdlab/SQDMetal.git" }
+quantum-metal = { git = "https://github.com/abhishekchak52/qiskit-metal.git", branch = "gui-import-isolation"}
